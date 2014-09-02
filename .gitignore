@@ -3,3 +3,6 @@ node_modules
 *.map
 *.js
 *.html
+!dist
+!dist/cheap.js
+!dist/cheap.min.js
