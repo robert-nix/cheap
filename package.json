@@ -1,0 +1,32 @@
+{
+  "name": "cheap",
+  "description": "Easy-to-use C-like memory layout",
+  "version": "0.1.0",
+  "author": "Robert Nix",
+  "url": "https://github.com/Mischanix/cheap",
+  "main": "./dist/cheap.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mischanix/cheap.git"
+  },
+  "devDependencies": {
+    "benchmark": "~1.0.0",
+    "benchtable": "0.0.2",
+    "coffee-script": "~1.8.0",
+    "colors": "~0.6.2",
+    "gulp": "~3.8.7",
+    "gulp-coffee": "~2.1.2",
+    "gulp-concat": "~2.3.4",
+    "gulp-header": "~1.0.5",
+    "gulp-mocha": "~1.0.0",
+    "gulp-uglify": "~1.0.0",
+    "gulp-util": "~3.0.1",
+    "memwatch": "~0.2.2",
+    "microtime": "~1.0.1",
+    "mocha": "~1.21.4",
+    "should": "~4.0.4"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/gulp spec"
+  }
+}
