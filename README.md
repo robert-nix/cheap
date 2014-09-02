@@ -1,4 +1,4 @@
-# cheap [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coveralls Status][coveralls-image]][coveralls-url]
+# cheap [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url]
 > contiguous memory layout in javascript
 
 ## Documentation
@@ -12,6 +12,3 @@
 
 [travis-url]: https://travis-ci.org/Mischanix/cheap
 [travis-image]: http://img.shields.io/travis/Mischanix/cheap.svg
-
-[coveralls-url]: https://coveralls.io/r/Mischanix/cheap
-[coveralls-image]: http://img.shields.io/coveralls/Mischanix/cheap/master.svg
