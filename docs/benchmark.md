@@ -14,7 +14,7 @@ usage changes.
 
 engine | objects | typed array
 --- | --- | ---
-node v0.10 | ~136 bytes | ~16 bytes
+v8 64-bit | ~136 bytes | ~16 bytes
 
 ### Chrome 39 (32-bit v8 on Desktop x86)
 
