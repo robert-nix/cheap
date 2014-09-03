@@ -1,6 +1,8 @@
 # cheap [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url]
 > contiguous memory layout in javascript
 
+### Save up to 90% heap usage with this one weird trick!  Never worry about GC stalls again!
+
 ## Documentation
 
 - [API reference](/docs/api.md)
