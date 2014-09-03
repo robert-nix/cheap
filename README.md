@@ -4,7 +4,8 @@
 ## Documentation
 
 - [API reference](/docs/api.md)
-- [Object pool sample](/test/vector_pool.coffee)
+- [Vector pool sample](/test/vector_pool.coffee)
+- [Vector pool benchmark](/docs/benchmark.md)
 
 [downloads-image]: http://img.shields.io/npm/dm/cheap.svg
 [npm-url]: https://npmjs.org/package/cheap
