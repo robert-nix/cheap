@@ -1,7 +1,7 @@
 {
   "name": "cheap",
   "description": "Easy-to-use C-like memory layout",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Robert Nix",
   "url": "https://github.com/Mischanix/cheap",
   "main": "./dist/cheap.js",
