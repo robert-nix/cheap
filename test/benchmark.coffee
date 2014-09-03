@@ -1,6 +1,10 @@
 Benchtable = require 'benchtable'
 VectorPool = require './vector_pool'
 
+log = (s) -> console.log s
+if document?
+  log = (s) -> document.write '<p>' + s + '</p>'
+
 pools = {}
 plains = {}
 for size in [1e3, 1e5, 1e6]
@@ -146,7 +150,7 @@ new Benchtable()
 .addInput('1e3', [1e3])
 .addInput('1e5', [1e5])
 .addInput('1e6', [1e6])
-.on('cycle', (e) -> document.write String e.target)
+.on('cycle', (e) -> log String e.target)
 .on('complete', ->
   console.log @table.toString()
 ).run()
