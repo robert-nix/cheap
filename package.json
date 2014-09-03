@@ -21,7 +21,6 @@
     "gulp-mocha": "~1.0.0",
     "gulp-uglify": "~1.0.0",
     "gulp-util": "~3.0.1",
-    "memwatch": "~0.2.2",
     "microtime": "~1.0.1",
     "mocha": "~1.21.4",
     "should": "~4.0.4"

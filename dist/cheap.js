@@ -226,6 +226,10 @@
     }
   };
 
+  C.offsetof = function(type, member) {
+    return type[member].offset;
+  };
+
   makeAccessors = function(def) {
     var T, align, arr, basic, cName, elShift, member, offset, pd, size, stride, type, typeId;
     offset = def.offset, member = def.member, type = def.type, stride = def.stride, align = def.align, size = def.size;
@@ -265,33 +269,31 @@
       if (basic) {
         return {
           get: function() {
-            var bIdx;
+            var bIdx, __b;
             bIdx = (this.__a + offset) >> elShift;
-            return (function(_this) {
-              return function(idx, val) {
-                if (val == null) {
-                  return _this.__b[arr][bIdx + idx];
-                } else {
-                  return _this.__b[arr][bIdx + idx] = val;
-                }
-              };
-            })(this);
+            __b = this.__b;
+            return function(idx, val) {
+              if (val == null) {
+                return __b[arr][bIdx + idx];
+              } else {
+                return __b[arr][bIdx + idx] = val;
+              }
+            };
           }
         };
       } else {
         return {
           get: function() {
-            return (function(_this) {
-              return function(idx, val) {
-                var bOff;
-                bOff = _this.__a + offset + idx * stride;
-                if (val == null) {
-                  return new type.__ctor(_this.__b, bOff);
-                } else {
-                  return C.memcpy(_this.__b, bOff, val.__b, val.__a, size);
-                }
-              };
-            })(this);
+            var bOff, __b;
+            bOff = this.__a + offset;
+            __b = this.__b;
+            return function(idx, val) {
+              if (val == null) {
+                return new type.__ctor(__b, bOff + idx * stride);
+              } else {
+                return C.memcpy(__b, bOff + idx * stride, val.__b, val.__a, size);
+              }
+            };
           }
         };
       }

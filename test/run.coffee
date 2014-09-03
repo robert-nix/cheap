@@ -41,27 +41,29 @@ VectorPool = require './vector_pool'
 
 describe 'VectorPool', ->
   pool = null
+  poolSize = 1e5
+  moreSize = 1e4
   it 'should be constructible', ->
-    pool = new VectorPool 1e6
-    pool.size.should.be.exactly 1e6
+    pool = new VectorPool poolSize
+    pool.size.should.be.exactly poolSize
   it 'should allow creating vectors', ->
-    for i in [0..1e6-1]
+    for i in [0..poolSize-1]
       pool.create 0.3, 0.7, 1.2, 0.8
     null
   it 'should allow deleting vectors', ->
-    for i in [0..1e6-1] by 2
+    for i in [0..poolSize-1] by 2
       pool.remove i
     null
   it 'should still allow creating vectors', ->
-    for i in [0..1e5-1]
+    for i in [0..moreSize-1]
       pool.create 0.3, 0.7, 1.2, 0.8
     null
   it 'should allow iterating vectors', ->
     sum = 0
     n = 0
-    quota = 1e6 / 2 + 1e5
-    pool.iterate (vec, i) ->
-      sum += vec.x + vec.y + vec.z + vec.w
+    quota = poolSize / 2 + moreSize
+    pool.iterate (x, y, z, w, i) ->
+      sum += x + y + z + w
       n++
     n.should.be.exactly quota
     Math.abs(3 * quota - sum).should.be.lessThan 0.5

@@ -22,6 +22,9 @@ describe 'struct', ->
       C.double 'f64'
     ]
     basicTest.should.be.a.Function;
+    C.offsetof(basicTest, 'ui8').should.be.exactly 0
+    C.offsetof(basicTest, 'ui32').should.be.exactly 4
+    C.offsetof(basicTest, 'i32').should.be.exactly 12
     block = C.malloc 0x1000
     obj = new basicTest block, 0
     obj.should.be.an.Object;

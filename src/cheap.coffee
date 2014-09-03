@@ -106,6 +106,8 @@ C.alignof = (type) ->
   else
     type.__align
 
+C.offsetof = (type, member) -> type[member].offset
+
 makeAccessors = (def) ->
   { offset, member, type, stride, align, size } = def
   basic = typeof type is 'string'
@@ -138,22 +140,24 @@ makeAccessors = (def) ->
       {
         get: ->
           bIdx = (@__a+offset) >> elShift
-          (idx, val) =>
+          {__b} = @
+          (idx, val) ->
             if not val?
-              @__b[arr][bIdx+idx]
+              __b[arr][bIdx+idx]
             else
-              @__b[arr][bIdx+idx] = val
+              __b[arr][bIdx+idx] = val
       }
     else
       # complex array type
       {
         get: ->
-          (idx, val) =>
-            bOff = @__a+offset+idx*stride
+          bOff = @__a+offset
+          {__b} = @
+          (idx, val) ->
             if not val?
-              new type.__ctor(@__b, bOff)
+              new type.__ctor(__b, bOff+idx*stride)
             else
-              C.memcpy @__b, bOff, val.__b, val.__a, size
+              C.memcpy __b, bOff+idx*stride, val.__b, val.__a, size
       }
   else
     # pointer type:

@@ -169,6 +169,14 @@ Basic and complex array types are read and written using the member as a
 
 The member is a `ptr` object.
 
+### obj.__a
+
+The relative heap address of the object within its block.
+
+### obj.__b
+
+The block the object exists in.
+
 ### ptr.deref(idx, *)
 
 Dereferences the ptr, subtracting 1 from its depth (i.e. the number of '*'s) and
@@ -199,11 +207,15 @@ default types or a struct definition as returned by `cheap.struct`.
 Gets the required alignment of a type.  `type` has the same requirements as
 `cheap.sizeof`.
 
-### cheap.strideof
+### cheap.strideof(type)
 
 Gets the array stride of a type, according to its size and alignment
 requirements.  Rounds up `sizeof(type)` to the nearest multiple of
 `alignof(type)`.
+
+### cheap.offsetof(structDef, member)
+
+Gets the offset of `member` in `structDef`.
 
 ### cheap.ref(locatable, [memberName])
 
@@ -224,6 +236,15 @@ The `a` field on blocks is part of the public interface and will not change.
 ### block.free()
 
 Frees the block, removing it from the heap.
+
+### block.a
+
+The virtual heap address (absolute) of the block.
+
+### block.{typedView}
+
+Allows direct access to the block's Typed Array views of its buffer, where
+`typedView` is one of:  ui32, i32, ui16, i16, ui8, i8, f32, f64.
 
 ### cheap.free(address)
 
