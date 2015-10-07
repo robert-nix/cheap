@@ -403,7 +403,7 @@ ptr.prototype.cast = (type) ->
     p = type.length - 1
     p = @p if p is 0
     tId = C._typeNameToId type[0]
-    tId = C._typeDefs[type[0]] if tId < 0
+    tId = C._typedefs[type[0]] if tId < 0
     new ptr @a, tId, p
   else
     new ptr @a, type, @p

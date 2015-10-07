@@ -1,6 +1,6 @@
 /**
  * cheap.js - C-like memory layout for javascript
- * version 0.1.0
+ * version 0.1.1
  * Copyright 2014 Robert Nix
  * MIT License
  */
@@ -656,7 +656,7 @@
       }
       tId = C._typeNameToId(type[0]);
       if (tId < 0) {
-        tId = C._typeDefs[type[0]];
+        tId = C._typedefs[type[0]];
       }
       return new ptr(this.a, tId, p);
     } else {
